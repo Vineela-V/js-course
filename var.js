@@ -12,7 +12,14 @@ alert(color);
 /* let admin, name;
 name = "Vineela";
 admin = name;
-alert(admin); */
+alert(admin); 
+
+a=7;
+b=a-3;
+console.log(b);
 
 
+var product = 20 * 25;
+console.log(product);
+*/
 

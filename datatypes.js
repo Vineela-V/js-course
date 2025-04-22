@@ -99,4 +99,33 @@ switch (a) {
         alert( '2,3,4');
         break;
 }
+
+let str = 'hello';
+alert(str.toLowerCase());
+
+let str = "Hii";
+str.test = 5;
+alert(str.test);
+
+let num = 2.3456;
+alert(Math.round(num * 100) / 100);
+
+let sum = 0.1 + 1.2;
+alert( sum.toFixed(2));
+
+var firstName = "VINEELA"
+var secondLetterOfFirstName = firstName[1];
+var lastName = "Lovelace";
+var thridLetterofLastName = lastName;
+
+function wordBlanks(myNoun, myAdjective, myVerb, myAdverb) {
+    var result = "";
+    return result;
+}
+console.log(wordBlanks("cat", "ran", "quickly"));
+
+var myArray = [10,20,30];
+var myData = myArray[2];
+console.log(myData);
 */
+
