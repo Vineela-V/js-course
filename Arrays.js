@@ -37,7 +37,7 @@ alert(fruits.lastIndexOf("Grape"));
 const arr =  [NaN];
 alert( arr.indexOf(NaN));
 alert( arr.includes(NaN));
-*/
+
 let users = [
     {id: 1, name: "Alpha"},
     {id: 2, name: "Gama"},
@@ -46,3 +46,102 @@ let users = [
 ];
 let user = users.find(item => item.id == 1);
 alert(user.name);
+
+let fruits = ["Apple","Orange","Pear"];
+alert( fruits.pop() );
+alert( fruits);
+
+let fruits = ["Apple","Orange","Pear"];
+alert( fruits.push() );
+alert( fruits);
+
+let fruits = ["Apple","Orange","Pear"];
+alert( fruits.shift() );
+alert( fruits);
+
+let fruits = ["Apple","Orange","Pear"];
+alert( fruits.unshift('Apple') );
+alert( fruits);
+
+let options = {
+    title: "Menu",
+    height: 200,
+    weight: 300
+};
+let {title, ... rest} = options;
+alert(rest.height);
+alert(rest.weight);
+
+let options = {
+    title: "My menu",
+    items: ["Item1", "Item2"]
+  };
+  
+  function showMenu({
+    title = "Untitled",
+    width: w = 100,  
+    height: h = 200, 
+    items: [item1, item2] 
+  }) {
+    alert( `${title} ${w} ${h}` ); 
+    alert( item1 ); // Item1
+    alert( item2 ); // Item2
+  }
+  showMenu(options);
+  let options = {
+  title: "My menu",
+  items: ["Item1", "Item2"]
+};
+
+let user = {name: "Vinni", years:24};
+let {name, years:age, isAdmin = false} = user;
+alert(name);
+alert(age);
+alert(isAdmin);
+let options = {
+  title: "My menu",
+  items: ["Item1", "Item2"]
+};
+
+function topSalary(salaries) {
+
+    let maxSalary = 0;
+    let maxName = null;
+  
+    for(const [name, salary] of Object.entries(salaries)) {
+      if (maxSalary < salary) {
+        maxSalary = salary;
+        maxName = name;
+      }
+    }
+  
+    return maxName;
+  }
+
+let now = new Date();
+alert( now);
+
+let date = new Date();
+alert( date.getHours() );
+alert(date.getUTCHours());
+
+function getWeekDay(date) {
+    let days = ['SU','MO','TU','WE','TH','FR','SA'];
+    return days[date.getDay()];
+}
+let date = new Date(2025, 4, 23);
+alert( getWeekDay(date));
+
+function getLastDayOfMonth(year, month) {
+    let date = new Date(year, month +1,0);
+}
+alert( getLastDayOfMonth(2024, 0));
+alert( getLastDayOfMonth(2024, 1));
+alert( getLastDayOfMonth(2024, 2));
+*/
+function getSecondsToday() {
+    let d = new Date();
+    return d.getHours() * 3600 + d.getMinutes() * 60 + d.getSeconds();
+  }
+  
+  alert( getSecondsToday() );

@@ -127,5 +127,51 @@ console.log(wordBlanks("cat", "ran", "quickly"));
 var myArray = [10,20,30];
 var myData = myArray[2];
 console.log(myData);
-*/
 
+let recipeMap = new Map([
+    ['chilli', 200],
+    ['tomatoes', 350],
+    ['onion', 500],
+]);
+for (let vegetable of recipeMap.keys()) {
+    alert(vegetable);
+}
+for (let amount of recipeMap.values()) {
+    alert(amount);
+}
+for (let entry of recipeMap) {
+    alert(entry);
+}
+
+let map = new Map();
+map.set('banana', 1);
+map.set('orange',2);
+map.set('apple',3);
+let obj =Object.fromEntries(map.entries());
+alert(obj.orange);
+
+let set = new Set();
+let john = {name: "John"};
+let pete = {name: "Pete"};
+let mary = {name: "Mary"};
+let jack = {name: "jack"};
+set.add(john);
+set.add(pete);
+set.add(mary);
+set.add(john);
+set.add(jack);
+alert(set.size);
+for (let user of set) {
+    alert(user.name);
+}
+
+let map = new Map();
+
+map.set("name", "John");
+
+let keys = Array.from(map.keys());
+
+keys.push("more");
+
+alert(keys); 
+*/
