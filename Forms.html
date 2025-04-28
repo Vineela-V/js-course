@@ -1,0 +1,235 @@
+<!--
+<form name="my">
+  <input name="one" value="1">
+  <input name="two" value="2">
+</form>
+<script>
+  let form = document.forms.my; 
+  let elem = form.elements.one; 
+  alert(elem.value); 
+</script>
+-->
+
+<!--
+<form>
+  <input type="radio" name="age" value="10">
+  <input type="radio" name="age" value="20">
+</form>
+<script>
+let form = document.forms[0];
+let ageElems = form.elements.age;
+alert(ageElems[0]); 
+</script>
+-->
+
+<!--
+<form id="form">
+  <input type="login">
+</form>
+<script>
+  let login = form.login;
+  alert(login.form);
+</script>
+-->
+
+<!--
+<select id="select">
+  <option value="banana">Banana</option>
+  <option value="apple">Apple</option>
+  <option value="orange">Orange</option>
+</select>
+<script>
+  select.options[2].selected = true;
+  select.selectedIndex = 2;
+  select.value = 'orange';
+</script>
+-->
+
+<!--
+<select id="select" multiple>
+  <option value="blue" selected>Blue</option>
+  <option value="red" selected>Red</option>
+  <option value="green" selected>Green</option>
+</select>
+<script>
+  let selected = Array.from(select.options)
+  .filter(option = option.selected)
+  .map(option => option.value);
+  alert(selected);
+</script> 
+-->
+
+<!--
+<select id="genres">
+  <option value="red">Red</option>
+  <option value="blues" selected>Blues</option>
+</select>
+<script>
+  let selectedOption = genres.options[genres.selectedIndex];
+  alert( selectedOption.value );
+  let newOption = new Option("Classic", "classic");
+  genres.append(newOption);
+  newOption.selected = true;
+</script>
+-->
+
+<!--
+<style>
+  .error {
+    background: red;
+  }
+</style>
+Your email please: <input type="email" id="input">
+<input type="text" style="width: 220px" placeholder="make email invalid and try to focus here">
+<script>
+  input.onblur = function() {
+    if (!this.value.includes('@')) {
+      this.classList.add("error");
+      input.focus();
+    } else {
+      this.classList.remove("error");
+    }
+  };
+</script>
+-->
+
+<!--
+<body>
+  <ul>
+    <li>Click the div to edit.</li>
+    <li>Enter or blur saves the result.</li>
+  </ul>
+  HTML is allowed.
+  <div id="view" class="view">Text</div>
+  <script>
+    let area = null;
+    let view = document.getElementById('view');
+    view.onclick = function() {
+      editStart();
+    };
+    function editStart() {
+      area = document.createElement('textarea');
+      area.className = 'edit';
+      area.value = view.innerHTML;
+      area.onkeydown = function(event) {
+        if (event.key == 'Enter') {
+          this.blur();
+        }
+      };
+      area.onblur = function() {
+        editEnd();
+      };
+      view.replaceWith(area);
+      area.focus();
+    }
+    function editEnd() {
+      view.innerHTML = area.value;
+      area.replaceWith(view);
+    }
+  </script>
+</body>
+-->
+
+<!--
+<input type="text" onchange="alert(this.value)">
+<input type="button" value="Button">
+-->
+
+<!--
+<input type="text" id="input"> oninput: <span id="result"></span>
+<script>
+  input.oninput = function() {
+    result.innerHTML = input.value;
+  };
+</script>
+-->
+
+<!--
+<style>
+  td select,
+  td input {
+    width: 150px;
+  }
+  #diagram td {
+    vertical-align: bottom;
+    text-align: center;
+    padding: 10px;
+  }
+  #diagram div {
+    margin: auto;
+  }
+</style>
+</head>
+<body>
+
+Deposit calculator.
+<form name="calculator">
+  <table>
+    <tr>
+      <td>Initial deposit</td>
+      <td>
+        <input name="money" type="number" value="10000" required>
+      </td>
+    </tr>
+    <tr>
+      <td>How many months?</td>
+      <td>
+        <select name="months">
+          <option value="3">3 (minimum)</option>
+          <option value="6">6 (half-year)</option>
+          <option value="12" selected>12 (one year)</option>
+          <option value="18">18 (1.5 years)</option>
+          <option value="24">24 (2 years)</option>
+          <option value="30">30 (2.5 years)</option>
+          <option value="36">36 (3 years)</option>
+          <option value="60">60 (5   years)</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td>Interest per year?</td>
+      <td>
+        <input name="interest" type="number" value="5" required>
+      </td>
+    </tr>
+  </table>
+</form>
+<table id="diagram">
+  <tr>
+    <th>Was:</th>
+    <th>Becomes:</th>
+  </tr>
+  <tr>
+    <th id="money-before"></th>
+    <th id="money-after"></th>
+  </tr>
+  <td>
+    <div style="background: red;width:40px;height:100px"></div>
+  </td>
+  <td>
+    <div style="background: green;width:40px;height:0" id="height-after"></div>
+  </td>
+</table>
+<script>
+  let form = document.forms.calculator;
+  form.money.oninput = calculate;
+  form.months.onchange = calculate;
+  form.interest.oninput = calculate;
+  function calculate() {
+    let initial = +form.money.value;
+    if (!initial) return;
+    let interest = form.interest.value * 0.01;
+    if (!interest) return;
+    let years = form.months.value / 12;
+    if (!years) return;
+    let result = Math.round(initial * (1 + interest) ** years);
+    let height = result / form.money.value * 100 + 'px';
+    document.getElementById('height-after').style.height = height;
+    document.getElementById('money-before').innerHTML = form.money.value;
+    document.getElementById('money-after').innerHTML = result;
+  }
+  calculate();
+</script>
+</body>
+-->
+

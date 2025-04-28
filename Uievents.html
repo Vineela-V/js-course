@@ -1,0 +1,68 @@
+<!--
+<input onmousemove="this.value=event.clientX+':'+event.clientY" value="Mouse over me">
+-->
+
+<span ondblclick="alert('dblclick')">Hey There</span>
+
+<head>
+<style>
+    .selected {
+      background: #0f0;
+    }
+
+    li {
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<!--
+<body>
+  Click on a list item to select it.
+  <br>
+
+  <ul id="ul">
+    <li>White Rabbit</li>
+    <li>Deer</li>
+    <li>Tiger</li>
+    <li>Kangaroo</li>
+    <li>Rabbit. Just rabbit.</li>
+  </ul>
+
+  <script>
+    ul.onclick = function(event) {
+      if (event.target.tagName != "LI") return;
+      if (event.ctrlKey || event.metaKey) {
+        toggleSelect(event.target);
+      } else {
+        singleSelect(event.target);
+      }
+    }
+    ul.onmousedown = function() {
+      return false;
+    };
+    function toggleSelect(li) {
+      li.classList.toggle('selected');
+    }
+    function singleSelect(li) {
+      let selected = ul.querySelectorAll('.selected');
+      for(let elem of selected) {
+        elem.classList.remove('selected');
+      }
+      li.classList.add('selected');
+    }
+  </script>
+-->
+
+<!--
+</body>
+<div data-tooltip="Here – is the house interior" id="house">
+  <div data-tooltip="Here – is the roof" id="roof"></div>
+  ...
+  <a href="https://en.wikipedia.org/wiki/The_Three_Little_Pigs" data-tooltip="Read on…">Hover over me</a>
+</div>
+-->
+
+window.addEventListener('scroll', function() {
+    document.getElementById('showScroll').innerHTML = window.pageYOffset + 'px';
+  });
