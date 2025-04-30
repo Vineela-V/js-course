@@ -135,7 +135,7 @@ let rabbit = {
 rabbit.__proto__ = animal;
 alert( rabbit.eats );
 alert( rabbit.jumps );
-*/
+
 let head = {
     glasses: 1
 };
@@ -155,3 +155,90 @@ let pockets = {
 alert( pockets.pen);
 alert( bed.glasses);
 alert( table.money);
+*/
+
+/*
+greet();
+function greet() {
+    console.log("Hello, World.");
+};
+
+var a = 10;
+var a = 20;
+console.log(a);
+
+
+for (var i = 0; i < 3; i++) {
+    setTimeout(function() {
+        console.log(i);
+    }, 100);
+}
+
+function outer() {
+    let outerVar = "I'm in the outer scope!";
+    function inner() {
+        console.log(outerVar);
+    }
+    return inner;
+}
+const closure = outer(); 
+closure();
+
+
+function createTimers() {
+    for (let i =0; i <=3; i++) {
+        setTimeout(function() {
+            console.log(`Timers ${i}`);
+        }, i* 1000);
+    }
+}
+createTimers();
+
+function add(a) {
+    return function(b) {
+        return a +b;
+    };
+}
+const addTwo = add(2);
+console.log(addTwo(3));
+
+
+function fun() {
+    console.log("Hey, Welcome.");
+}
+function fun2(action) {
+    action();
+    action();
+    action();
+}
+fun2(fun);
+
+const v = [1, 2, 3, 4, 5];
+const square = v.map((num) => num * num);
+console.log(square);
+
+const a = [1, 2, 3, 4, 5];
+const even = navigator.filter((num) =>  num % 2 === 0);
+console.log(even);
+
+const n = [1, 2, 3, 4, 5];
+const sum = n.reduce((acc, curr) => acc + curr, 0);
+console.log(sum);
+
+const n = [1,2,3];
+n.forEach((num) => console.log(num + 2));
+
+
+const a = [1, 2, 3, 4, 5];
+const even = a.filter(function(n) {
+    return n % 2 === 0;
+});
+console.log(even);
+
+const getData = async() => {
+    let data = "Hey Hello";
+    return data;
+}
+getData().then(data => console.log(data));
+*/
+
