@@ -50,7 +50,6 @@ class User {
   }
   let user = new User();
   alert(user.name);
-  */
   class Clock {
     constructor({ template }) {
       this.template = template;
@@ -81,3 +80,259 @@ class User {
   }
   let clock = new Clock({template: 'h:m:s'});
   clock.start();
+ */
+/*
+class Person {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+  v() {
+    console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
+  }
+}
+let p1 = new Person("Vineela", 23);
+p1.v();
+
+//using constructor//
+class car {
+  constructor(make, model, year) {
+    this.make = make;
+    this.model = model;
+    this.year = year;
+  }
+  v() {
+    console.log(`${this.make} ${this.year} ${this.model}`);
+  }
+}
+let my = new car("KIA", "Cobra", 2025);
+my.v();
+
+// Inheritance //
+class Car {
+  constructor(make, model, year) {
+      this.make = make;
+      this.model = model;
+      this.year = year;
+  }
+  di() {
+      console.log(`${this.year} ${this.make} ${this.model}`);
+  }
+}
+class ElectricCar extends Car {
+  constructor(make, model, year, batteryLife) {
+      super(make, model, year);
+      this.batteryLife = batteryLife;
+  }
+  d() {
+      console.log(`Battery life: ${this.batteryLife} hours`);
+  }
+}
+let tesla = new ElectricCar("Tesla", "Model S", 2022, 24);
+tesla.di()
+tesla.d();
+
+// class based inheritance//
+class one {
+  constructor(name) {
+     this.name = name
+  }
+  speaks() {
+    return `my name is ${this.name}`
+  }
+}
+class two extends one {
+  constructor(name) {
+    super(name)
+  }
+}
+const v = new two('Vineela')
+console.log(v.speaks())
+
+// mixins for inheritance//
+const one = {
+  speak() {
+    return `${this.name} speaks`
+  }
+}
+const two = {
+  walks() {
+    return `${this.name} walks`
+  }
+}
+function Person(name) {
+  this.name = name
+}
+Object.assign(Person.prototype, one, two)
+const person1 = new Person('Vineela')
+console.log(person1.speak())
+console.log(person1.walks())
+
+// inheritance with object.create()//
+let obj = {
+  name: 'Vineela',
+  age: 23,
+  prints() {
+    return `my name is ${this.name}`
+  }
+}
+let obj1 = Object.create(obj)
+obj1.name = 'Vinni'
+console.log(obj1.age)
+console.log(obj1.prints())
+
+// inheritance with PrototypeOf() //
+const one =  {
+  speak() {
+    return `${this.name} speaks`
+  }
+}
+const two = {
+  name: 'Vineela'
+}
+Object.setPrototypeOf(one, two)
+console.log(one.speak())
+
+// factory fun for inheritance//
+function createPerson(name) {
+  return {
+    name: name,
+    greet() {
+      return `Hello my name is ${this.name}`
+    }
+  }
+}
+const one = createPerson('Vinni')
+const two = createPerson('Binni')
+console.log(one.greet())
+console.log(two.greet())
+
+// creating multiple objects from a class//
+
+class Car {
+  constructor(make, modle, year) {
+    this.make = make;
+    this.modle = modle;
+    this.year = year;
+  }
+  v() {
+    console.log(`${this.modle}, ${this.make}, ${this.year}`);
+  }
+}
+let c1 = new Car("Toyota", "Cobra", 2024);
+let c2 = new Car("Kia", "Bagafa", 2025);
+c1.v();
+c2.v();
+
+// this keyword //
+const Person = {
+  name: "JavaScriptCourse",
+  greet() {
+    return `Welcome To, ${this.name}`;
+  }
+};
+console.log(Person.greet());
+
+function greet() {
+  console.log(`Hello, my name is` + this.name);
+}
+const Person = {
+  name: 'Vineela',
+  sayHello: greet
+};
+const anotherPerson = {
+  name: 'Vinni'
+};
+greet();
+Person.sayHello();
+greet.call(anotherPerson);
+
+const Person = {
+  name: 'Vineela',
+  age: 23,
+  greet : () => {
+    return `Hello, you are ${this.age} years old`
+  }
+}
+console.log(Person.greet());
+
+
+// Methods //
+class MathUtils {
+  static add(a,b) {
+    return a +b;
+  }
+  static multiply(a,b) {
+    return a *b;
+  }
+}
+console.log(MathUtils.add(5, 3));
+console.log(MathUtils.multiply(2,8));
+
+// math.max() //
+class Calc {
+  static getMax(...numbers) {
+    return Math.max(...numbers);
+  }
+}
+console.log(Calc.getMax(1, 5, 6, 4));
+// Encapuslation//
+// using closures//
+
+function BankAccount(accountNumber, accountHolderName, balance) {
+  let _accountNumber = accountNumber;
+  let _accountHolderName = accountHolderName;
+  let _balance = balance;
+  function showAccountDetails() {
+    console.log(`Account Number: ${_accountNumber}`);
+    console.log(`Account Holder Name: ${_accountHolderName}`);
+    console.log(`Balance: ${_balance}`); 
+  }
+  function deposit(amount) {
+    _balance += amount;
+    showAccountDetails();
+  }
+  function withdraw(amount) {
+    if (_balance >= amount) {
+      _balance -= amount;
+      showAccountDetails();
+    } else {
+      console.log("Insufficient Balance");
+    }
+  }
+  return {
+    deposit,
+    withdraw
+  };
+}
+let myBankAccount = BankAccount("1123456", "Vineela", 1000);
+myBankAccount.deposit(1500);     
+myBankAccount.withdraw(5000);    
+*/
+// using class//
+class BankAccount { 
+  constructor(accountNumber, accountHolderName, balance) {
+    this._accountNumber = accountNumber;
+    this._accountHolderName = accountHolderName;
+    this._balance = balance;
+  }
+  showAccountDetails() {
+    console.log(`Account Number: ${this._accountNumber}`);
+    console.log(`Account Holder Name: ${this._accountHolderName}`);
+    console.log(`Balance: ${this._balance}`);
+  }
+  deposit(amount) {
+    this._balance += amount;
+    this.showAccountDetails();
+  }
+  withdraw(amount) {
+    if (this._balance >= amount) {
+      this._balance -= amount;
+      this.showAccountDetails();
+    } else {
+      console.log("Insufficient Balance");
+    }
+  }
+}
+let myBankAccount = new BankAccount("1897630", "Vineela", 1000);
+myBankAccount.deposit(1000);
